@@ -4,6 +4,7 @@ namespace App\Http\Controllers\product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use App\Model\Product;
 
 class ProductController extends Controller
@@ -62,7 +63,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id)->first();
+        return view('layouts.admin.product.edit',['product' => $product]);
     }
 
     /**
@@ -74,7 +76,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = $request->all();
+        $back = $product['submit'];
+        unset($product['submit']);
+        unset($product['_method']);
+        unset($product['_token']);
+
+        //set price format
+        $product['price'] = str_replace('.','',$product['price']);
+        Product::where('id',$id)->update($product);
+        if($back == 'apply'):
+            return back();
+        else:
+            return redirect()->route('products.index');
+        endif;
     }
 
     /**

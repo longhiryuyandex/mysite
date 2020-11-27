@@ -10932,11 +10932,19 @@ a.text-dark:focus {
   padding: 0 10px !important;
 }
 
-button {
-  padding: 2px 4px !important;
-}
-
 ol.breadcrumb {
   border-radius: 6px;
+}
+
+form[name=create] img#view-img {
+  height: auto;
+  width: 100%;
+}
+
+form[name=create] .row[name=row-create] {
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: thin solid #CCC;
+  margin: 25px 0px;
 }
 
