@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title','Add/Edit product')
+@section('title','Edit product: '.$product->name)
+@section('keywords',$product->seoKeyword)
+@section('description',$product->seoDesc)
 
 @section('content')
 <form name="create" method="POST" action="{{route('products.update', $product->id)}}">

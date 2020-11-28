@@ -3,12 +3,6 @@ $(document).ready(function(){
         alert('a');
     });
 
-    $('.delete').on('click', function (e) {
-        if (!confirm('Are you sure you want to delete?')) return;
-        e.preventDefault();
-        $('form.delete' + $(this).data('form')).submit();
-    });
-
     //Create form
     $("input[name=price]").focusout(function(){
         var price = $(this).val();
@@ -22,4 +16,25 @@ $(document).ready(function(){
             return false;
         }
     });
+
+    $('button[name=delete]').click(function(){
+        $confirm = confirm("Are you sure you want to delete this record?");
+        if($confirm == false){
+            return false;
+        }else{
+            var id = $(this).attr('id');
+            var link = $(this).attr('link');
+            var token = $("meta[name='csrf-token']").attr("content");
+            $.ajax({
+                type:'DELETE',
+                url: link,
+                data:{id:id,'_method':'DELETE',_token: token},
+                success:function(data){
+                    //alert(data.success);
+                    $(this).parents('.row').hide('slow');
+                }
+            });
+        }
+    });
+
 });

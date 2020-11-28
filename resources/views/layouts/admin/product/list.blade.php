@@ -11,35 +11,41 @@
     </ol>
 </nav>
 
-<table id="list-table">
-    <tr>
-      <th class="text-center">SKU</th>
-      <th class="text-center">Product name</th>
-      <th class="text-center">Cate</th>
-      <th class="text-center">Price</th>
-      <th class="text-center">Action</th>
-    </tr>
-    @foreach ($product as $item)
-    <tr>
-        <td class="fit text-center">{{$item->SKU}}</td>
-        <td><img src="{{$item->img}}" height="70" width="70"> {{$item->name}}</td>
-        <td class="fit text-center">{{$item->cateID}}</td>
-        <td class="fit text-center">@php echo number_format($item->price,0,',','.'); @endphp</td>
-        <td>
-            <a href="#"><button type="button" class="btn btn-outline-primary">Edit</button></a>
-            <button type="button" class="btn btn-outline-success">View</button>
-
-            <button type="submit" class="delete" class="btn btn-outline-secondary">Delete</button>
-
-
-
-        </td>
-    </tr>
-    @endforeach
-    <tr aria-colspan="5">{{$product->links()}}</tr>
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row border-bottom border-top bg-white header">
+                <div class="col-md-1 text-center">SKU</div>
+                <div class="col-md-1 text-center">Image</div>
+                <div class="col-md-3 text-center">Product name</div>
+                <div class="col-md-2 text-center">Cate</div>
+                <div class="col-md-1 text-center">Price</div>
+                <div class="col-md-1 text-center">Active</div>
+                <div class="col-md-1 text-center">Feature</div>
+                <div class="col-md-2 text-center">Action</div>
+            </div>
+            @php $bg = 1;  @endphp
+            @foreach ($product as $item)
+            @php $bg++; $color = ($bg %2 !=0)? '#FFF' : '#FBFBFB';  @endphp
+            <div class="row border-bottom py-1" style="background-color: {{$color}};">
+                <div class="col-md-1 align-self-center text-center">{{$item->SKU}}</div>
+                <div class="col-md-1 text-center"><img width="60" height="60" src="{{$item->img}}" /></div>
+                <div class="col-md-3 align-self-center">
+                    <a href="{{route('products.edit',$item->id)}}">{{$item->name}}</a>
+                </div>
+                <div class="col-md-2 align-self-center text-center">{{$item->cateID}} <span class="align-middle">middle</span></div>
+                <div class="col-md-1 align-self-center text-center">@php echo number_format($item->price,0,',','.'); @endphp</div>
+                <div class="col-md-1 align-self-center text-center">@php $active = ($item->active == 1)? 'Activated' : 'Deactivative'; echo $active;  @endphp</div>
+                <div class="col-md-1 align-self-center text-center">@php $feature = ($item->feature == 1)? 'Featured' : 'Nope'; echo $feature;  @endphp</div>
+                <div class="col-md-2 align-self-center text-center">
+                    <a class="btn btn-primary btn-sm" href="{{route('products.edit',$item->id)}}" role="button">Edit</a>
+                    <button type="button" class="btn btn-success btn-sm">View</button>
+                    <button name="delete" id="{{$item->id}}" link="{{route('products.destroy',$item->id)}}" type="button" class="btn btn-secondary btn-sm">Delete</button>
+                </div>
+            </div>
+            @endforeach
+            {{$product->links()}}
+        </div>
+    </div>
+</div>
 @endsection
-
-<script>
-    document
-</script>

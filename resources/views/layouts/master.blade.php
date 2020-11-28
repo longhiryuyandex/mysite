@@ -1,9 +1,14 @@
 <!-- Stored in resources/views/layouts/master.blade.php -->
 <html>
     <head>
-        <title>App Name - @yield('title')</title>
+        <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
         <link rel="stylesheet" href="{{asset('./plugins/fancybox-master/dist/jquery.fancybox.min.css')}}" />
+        <meta charset="UTF-8">
+        <meta name="description" content="@yield('description')">
+        <meta name="keywords" content="@yield('keywords')">
+        <meta name="author" content="TRE Furniture">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body>
