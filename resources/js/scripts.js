@@ -19,21 +19,23 @@ $(document).ready(function(){
 
     $('button[name=delete]').click(function(){
         $confirm = confirm("Are you sure you want to delete this record?");
-        if($confirm == false){
-            return false;
-        }else{
-            var id = $(this).attr('id');
-            var link = $(this).attr('link');
-            var token = $("meta[name='csrf-token']").attr("content");
+        var del_button = $(this);
+        var id = del_button.attr('id');
+        var link = del_button.attr('link');
+        var token = $("meta[name='csrf-token']").attr("content");
+
+        if($confirm == true){
             $.ajax({
                 type:'DELETE',
                 url: link,
                 data:{id:id,'_method':'DELETE',_token: token},
                 success:function(data){
                     //alert(data.success);
-                    $(this).parents('.row').hide('slow');
+                    $("div."+id).fadeOut('slow');
                 }
             });
+        }else{
+
         }
     });
 

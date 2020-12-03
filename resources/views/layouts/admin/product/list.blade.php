@@ -27,7 +27,7 @@
             @php $bg = 1;  @endphp
             @foreach ($product as $item)
             @php $bg++; $color = ($bg %2 !=0)? '#FFF' : '#FBFBFB';  @endphp
-            <div class="row border-bottom py-1" style="background-color: {{$color}};">
+            <div class="row {{$item->id}} border-bottom py-1" style="background-color: {{$color}};">
                 <div class="col-md-1 align-self-center text-center">{{$item->SKU}}</div>
                 <div class="col-md-1 text-center"><img width="60" height="60" src="{{$item->img}}" /></div>
                 <div class="col-md-3 align-self-center">
@@ -35,8 +35,29 @@
                 </div>
                 <div class="col-md-2 align-self-center text-center">{{$item->cateID}} <span class="align-middle">middle</span></div>
                 <div class="col-md-1 align-self-center text-center">@php echo number_format($item->price,0,',','.'); @endphp</div>
-                <div class="col-md-1 align-self-center text-center">@php $active = ($item->active == 1)? 'Activated' : 'Deactivative'; echo $active;  @endphp</div>
-                <div class="col-md-1 align-self-center text-center">@php $feature = ($item->feature == 1)? 'Featured' : 'Nope'; echo $feature;  @endphp</div>
+                <div class="col-md-1 align-self-center text-center">
+                    <!-- Default switch -->
+                    <div class="custom-control custom-switch">
+                        @php $active = ($item->active == 1)? 'Activated' : 'Deactivative';@endphp
+                        @php $checked = ($item->active == 1)? 'checked' : NULL; @endphp
+                        <input type="checkbox" class="custom-control-input" id="customSwitches" value="{{$item->active}}" {{$checked}}>
+                        <label class="custom-control-label" for="customSwitches">
+                           {{$active}}
+                        </label>
+                    </div>
+
+                </div>
+                <div class="col-md-1 align-self-center text-center">
+                    <!-- Default switch -->
+                    <div class="custom-control custom-switch">
+                        @php $feature = ($item->feature == 1)? 'Featured' : 'Nope';@endphp
+                        @php $checked = ($item->feature == 1)? 'checked' : NULL; @endphp
+                        <input type="checkbox" class="custom-control-input" id="customSwitches" value="{{$item->feature}}" {{$checked}}>
+                            <label class="custom-control-label" for="customSwitches">
+                            {{$feature}}
+                            </label>
+                    </div>
+                </div>
                 <div class="col-md-2 align-self-center text-center">
                     <a class="btn btn-primary btn-sm" href="{{route('products.edit',$item->id)}}" role="button">Edit</a>
                     <button type="button" class="btn btn-success btn-sm">View</button>
@@ -44,7 +65,10 @@
                 </div>
             </div>
             @endforeach
-            {{$product->links()}}
+            <div class="row">
+                <div class="col-md-3 offset-md-9">{{$product->links()}}</div>
+            </div>
+
         </div>
     </div>
 </div>
