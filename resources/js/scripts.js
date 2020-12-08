@@ -39,4 +39,32 @@ $(document).ready(function(){
         }
     });
 
+    $('.ajax-update').click(function(){
+        var active = $(this);
+        var value = active.attr('value');
+        var send;
+        var link = active.attr('url');
+        var token = $("meta[name='csrf-token']").attr("content");
+        var id = active.attr('id-pro');
+        var field = active.attr('field');
+        if(value == 1){
+            send = 0;
+            active.html('Deactivated');
+        }
+        else{
+            send = 1;
+            active.html('Activated');
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: link,
+            data:{send:send,id:id,field:field,'_method':'POST',_token: token},
+            success:function(data){
+                alert(data);
+            }
+        });
+
+    });
+
 });

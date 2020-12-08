@@ -9,6 +9,13 @@ use App\Model\Product;
 
 class ProductController extends Controller
 {
+    public function ajax(Request $request){
+        $data = $request->all();
+        $field = $data['field'];
+        $value = $data['send'];
+        Product::where('id',$data['id'])->update([$field => $value]);
+        return $data['field'];
+    }
     /**
      * Display a listing of the resource.
      *

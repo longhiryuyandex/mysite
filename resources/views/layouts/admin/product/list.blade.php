@@ -38,12 +38,8 @@
                 <div class="col-md-1 align-self-center text-center">
                     <!-- Default switch -->
                     <div class="custom-control custom-switch">
-                        @php $active = ($item->active == 1)? 'Activated' : 'Deactivative';@endphp
-                        @php $checked = ($item->active == 1)? 'checked' : NULL; @endphp
-                        <input type="checkbox" class="custom-control-input" id="customSwitches" value="{{$item->active}}" {{$checked}}>
-                        <label class="custom-control-label" for="customSwitches">
-                           {{$active}}
-                        </label>
+                        @php $active = ($item->active == 1)? 'Activated' : 'Deactivated';@endphp
+                        <span class="ajax-update" field='active' id-pro='{{$item->id}}' url='{{route('ajax-update')}}' value='{{$item->active}}'>{{$active}}</span>
                     </div>
 
                 </div>
@@ -52,7 +48,7 @@
                     <div class="custom-control custom-switch">
                         @php $feature = ($item->feature == 1)? 'Featured' : 'Nope';@endphp
                         @php $checked = ($item->feature == 1)? 'checked' : NULL; @endphp
-                        <input type="checkbox" class="custom-control-input" id="customSwitches" value="{{$item->feature}}" {{$checked}}>
+                        <input type="checkbox" class="custom-control-input" id="feature-{{$item->id}}" value="{{$item->feature}}" {{$checked}}>
                             <label class="custom-control-label" for="customSwitches">
                             {{$feature}}
                             </label>

@@ -10903,35 +10903,6 @@ a.text-dark:focus {
   }
 }
 
-#list-table {
-  border-collapse: collapse !important;
-  width: 100%;
-  font-size: 11pt;
-  background-color: #fff;
-}
-
-#list-table td,
-#list-table th {
-  border: 1px solid #ddd !important;
-  padding: 3px !important;
-}
-
-#list-table tr:hover {
-  background-color: #F5F5F5 !important;
-}
-
-#list-table th {
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
-  color: black !important;
-}
-
-#list-table .fit {
-  width: 1%;
-  white-space: nowrap;
-  padding: 0 10px !important;
-}
-
 ol.breadcrumb {
   border-radius: 6px;
 }
@@ -10951,5 +10922,11 @@ form[name=create] .row[name=row-create] {
 .header {
   font-weight: bold;
   padding: 8px 0;
+}
+
+.ajax-update {
+  cursor: pointer;
+  color: cadetblue;
+  font-weight: bold;
 }
 

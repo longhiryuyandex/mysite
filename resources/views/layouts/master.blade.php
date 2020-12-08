@@ -1,9 +1,9 @@
-<!-- Stored in resources/views/layouts/master.blade.php -->
 <html>
     <head>
         <title>@yield('title')</title>
         <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}" />
         <link rel="stylesheet" href="{{asset('./plugins/fancybox-master/dist/jquery.fancybox.min.css')}}" />
+
         <meta charset="UTF-8">
         <meta name="description" content="@yield('description')">
         <meta name="keywords" content="@yield('keywords')">
@@ -34,9 +34,8 @@
 <script src="{{asset('plugins/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('plugins/fancybox-master/dist/jquery.fancybox.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/df-number-format/2.1.6/jquery.number.min.js" integrity="sha512-3z5bMAV+N1OaSH+65z+E0YCCEzU8fycphTBaOWkvunH9EtfahAlcJqAVN2evyg0m7ipaACKoVk6S9H2mEewJWA==" crossorigin="anonymous"></script>
+
 <script>
-
-
 CKEDITOR.replace('desc',{
     filebrowserBrowseUrl : '../../../plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=',
     filebrowserUploadUrl : '../../../plugins/filemanager/dialog.php?type=1&editor=ckeditor&fldr=',
