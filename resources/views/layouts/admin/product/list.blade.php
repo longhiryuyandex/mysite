@@ -36,10 +36,11 @@
                 <div class="col-md-2 align-self-center text-center">{{$item->cateID}} <span class="align-middle">middle</span></div>
                 <div class="col-md-1 align-self-center text-center">@php echo number_format($item->price,0,',','.'); @endphp</div>
                 <div class="col-md-1 align-self-center text-center">
+
                     <!-- Default switch -->
                     <div class="custom-control custom-switch">
                         @php $active = ($item->active == 1)? 'Activated' : 'Deactivated';@endphp
-                        <span class="ajax-update" field='active' id-pro='{{$item->id}}' url='{{route('ajax-update')}}' value='{{$item->active}}'>{{$active}}</span>
+                        <span class="ajax-update" id-pro='{{$item->id}}' url='{{route('ajax-update')}}' value='{{$item->active}}'>{{$active}}</span>
                     </div>
 
                 </div>

@@ -9,7 +9,7 @@ use App\Model\Product;
 
 class ProductController extends Controller
 {
-    public function ajax(Request $request){
+    public function activeFeature(Request $request){
         $data = $request->all();
         $field = $data['field'];
         $value = $data['send'];

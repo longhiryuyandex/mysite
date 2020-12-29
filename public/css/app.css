@@ -10924,9 +10924,3 @@ form[name=create] .row[name=row-create] {
   padding: 8px 0;
 }
 
-.ajax-update {
-  cursor: pointer;
-  color: cadetblue;
-  font-weight: bold;
-}
-

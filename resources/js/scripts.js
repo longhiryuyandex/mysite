@@ -1,7 +1,5 @@
 $(document).ready(function(){
-    $('#clickme').click(function(){
-        alert('a');
-    });
+
 
     //Create form
     $("input[name=price]").focusout(function(){
@@ -39,31 +37,31 @@ $(document).ready(function(){
         }
     });
 
-    $('.ajax-update').click(function(){
+    ajaxUpdate(); // Check when page start, to chang color
+    $('.ajax-update').on("click", function(){
         var active = $(this);
         var value = active.attr('value');
         var send;
         var link = active.attr('url');
         var token = $("meta[name='csrf-token']").attr("content");
         var id = active.attr('id-pro');
-        var field = active.attr('field');
         if(value == 1){
             send = 0;
+            active.removeClass('text-success');
+            active.addClass('text-danger');
             active.html('Deactivated');
         }
         else{
             send = 1;
+            active.removeClass('text-danger');
+            active.addClass('text-success');
             active.html('Activated');
+            
         }
+        active.attr('value',send);
 
-        $.ajax({
-            type: 'POST',
-            url: link,
-            data:{send:send,id:id,field:field,'_method':'POST',_token: token},
-            success:function(data){
-                alert(data);
-            }
-        });
+        var result = ajaxFunction('POST',link,{send:send,id:id,field:'active','_method':'POST',_token: token});
+        alert(result);
 
     });
 
