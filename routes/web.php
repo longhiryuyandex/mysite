@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function(){
     Route::resource('products', 'product\ProductController');
-    Route::post('products/ajax', 'product\ProductController@activeFeature')->name('ajax-update');
+    Route::post('products/ajax', 'product\ProductController@active_feature')->name('ajax-update');
 });

@@ -1,3 +1,3 @@
 require('./bootstrap');
-require('./functions');
 require('./scripts');
+require('./product');

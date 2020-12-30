@@ -36,20 +36,15 @@
                 <div class="col-md-2 align-self-center text-center">{{$item->cateID}} <span class="align-middle">middle</span></div>
                 <div class="col-md-1 align-self-center text-center">@php echo number_format($item->price,0,',','.'); @endphp</div>
                 <div class="col-md-1 align-self-center text-center">
-
-                    <!-- Default switch -->
-                    <div class="custom-control custom-switch">
-                        @php $active = ($item->active == 1)? 'Activated' : 'Deactivated';@endphp
-                        <span class="ajax-update" id-pro='{{$item->id}}' url='{{route('ajax-update')}}' value='{{$item->active}}'>{{$active}}</span>
-                    </div>
-
+                    @php $active = ($item->active == 1)? 'Activated' : 'Deactivated';@endphp
+                    <span class="ajax-active" value='{{$item->active}}' id-pro='{{$item->id}}'>{{$active}}</span>
                 </div>
                 <div class="col-md-1 align-self-center text-center">
                     <!-- Default switch -->
                     <div class="custom-control custom-switch">
                         @php $feature = ($item->feature == 1)? 'Featured' : 'Nope';@endphp
                         @php $checked = ($item->feature == 1)? 'checked' : NULL; @endphp
-                        <input type="checkbox" class="custom-control-input" id="feature-{{$item->id}}" value="{{$item->feature}}" {{$checked}}>
+                        <input type="checkbox"  class="custom-control-input" id="feature-{{$item->id}}" value="{{$item->feature}}" {{$checked}}>
                             <label class="custom-control-label" for="customSwitches">
                             {{$feature}}
                             </label>

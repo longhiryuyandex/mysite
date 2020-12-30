@@ -9,12 +9,14 @@ use App\Model\Product;
 
 class ProductController extends Controller
 {
-    public function activeFeature(Request $request){
+    public function active_feature(Request $request){
         $data = $request->all();
         $field = $data['field'];
-        $value = $data['send'];
+        // get data form DB
+        $active = Product::find($data['id']);
+        $value = ($active->active + 1) % 2;
         Product::where('id',$data['id'])->update([$field => $value]);
-        return $data['field'];
+        return $value;
     }
     /**
      * Display a listing of the resource.
@@ -70,7 +72,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id)->first();
+        $product = Product::find($id);
         return view('layouts.admin.product.edit',['product' => $product]);
     }
 
