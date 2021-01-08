@@ -6,7 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+@import "~toastr/toastr.scss";
+@import "~jquery-datetimepicker/jquery.datetimepicker.css";
 //my CSS
 
 ol.breadcrumb{

@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $('.datetime').datetimepicker({
+        format:'d.m.Y',
+        lang:'vn'
+    });
 
     var token = $("meta[name='csrf-token']").attr("content");
 
@@ -50,12 +54,14 @@ $(document).ready(function(){
                         active.addClass('text-danger');
                         active.html('Deactivated');
                     }
+
+                    toastr.success('Status changed successfully!');
                 }
             });
         });
     });
 
-
+   
 
 
 

@@ -18,6 +18,7 @@
                 <button name="submit" value="save" type="submit" class="btn btn btn-primary btn-sm">Save and exit</button>
                 <a href="{{route('products.index')}}" class="btn btn-secondary btn-sm exit" role="button">Exit</a>
             </div>
+            <input type="text" class="datetime">
             <div class="col-md-4">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
