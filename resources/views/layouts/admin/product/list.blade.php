@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-md-2 align-self-center text-center">
                     <a class="btn btn-primary btn-sm" href="{{route('products.edit',$item->id)}}" role="button">Edit</a>
-                    <button type="button" class="btn btn-success btn-sm">View</button>
+                    <button name="view" type="button" class="btn btn-success btn-sm">View</button>
                     <button name="delete" id="{{$item->id}}" link="{{route('products.destroy',$item->id)}}" type="button" class="btn btn-secondary btn-sm">Delete</button>
                 </div>
             </div>

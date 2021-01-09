@@ -1,5 +1,5 @@
 require('./bootstrap');
-require('jquery-datetimepicker/build/jquery.datetimepicker.full.js'); 
+require('jquery-datetimepicker/build/jquery.datetimepicker.full.js');
 window.toastr = require('toastr');
 toastr.options = {
     "closeButton": true,
@@ -18,6 +18,6 @@ toastr.options = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
   };
- 
+require("jquery-confirm/dist/jquery-confirm.min.js");
 require('./scripts');
 require('./product');

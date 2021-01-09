@@ -5,4 +5,26 @@ $(document).ready(function () {
             return false;
         }
     });
+
+    $('button[name=view]').click(function(){
+        alert('a');
+        $.confirm({
+            title: 'What is up?',
+            content: 'Here goes a little content',
+            type: 'green',
+            buttons: {
+                ok: {
+                    text: "ok!",
+                    btnClass: 'btn-primary',
+                    keys: ['enter'],
+                    action: function(){
+                         console.log('the user clicked confirm');
+                    }
+                },
+                cancel: function(){
+                        console.log('the user clicked cancel');
+                }
+            }
+        });
+    });
 });
