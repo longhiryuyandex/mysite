@@ -18,6 +18,13 @@ class ProductController extends Controller
         Product::where('id',$data['id'])->update([$field => $value]);
         return $value;
     }
+
+    public function quick_view(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $product = Product::find($id);
+        return view('layouts.admin.product.quickview',['product' => $product ]);
+    }
     /**
      * Display a listing of the resource.
      *

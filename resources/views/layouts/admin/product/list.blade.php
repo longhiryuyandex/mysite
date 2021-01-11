@@ -28,7 +28,9 @@
             @foreach ($product as $item)
             @php $bg++; $color = ($bg %2 !=0)? '#FFF' : '#FBFBFB';  @endphp
             <div class="row {{$item->id}} border-bottom py-1" style="background-color: {{$color}};">
-                <div class="col-md-1 align-self-center text-center">{{$item->SKU}}</div>
+                <div class="col-md-1 align-self-center text-center">
+                    {{$item->SKU}}
+                </div>
                 <div class="col-md-1 text-center"><img width="60" height="60" src="{{$item->img}}" /></div>
                 <div class="col-md-3 align-self-center">
                     <a href="{{route('products.edit',$item->id)}}">{{$item->name}}</a>
@@ -36,23 +38,19 @@
                 <div class="col-md-2 align-self-center text-center">{{$item->cateID}} <span class="align-middle">middle</span></div>
                 <div class="col-md-1 align-self-center text-center">@php echo number_format($item->price,0,',','.'); @endphp</div>
                 <div class="col-md-1 align-self-center text-center">
-                    @php $active = ($item->active == 1)? 'Activated' : 'Deactivated';@endphp
-                    <span class="ajax-active" value='{{$item->active}}' id-pro='{{$item->id}}'>{{$active}}</span>
+                    @php $active = ($item->active == 1)? 'Enabled' : 'Disabled';@endphp
+                    <span class="ajax-active" field='active' value='{{$item->active}}' id-pro='{{$item->id}}'>{{$active}}</span>
                 </div>
                 <div class="col-md-1 align-self-center text-center">
-                    <!-- Default switch -->
-                    <div class="custom-control custom-switch">
-                        @php $feature = ($item->feature == 1)? 'Featured' : 'Nope';@endphp
-                        @php $checked = ($item->feature == 1)? 'checked' : NULL; @endphp
-                        <input type="checkbox"  class="custom-control-input" id="feature-{{$item->id}}" value="{{$item->feature}}" {{$checked}}>
-                            <label class="custom-control-label" for="customSwitches">
-                            {{$feature}}
-                            </label>
-                    </div>
+                    @php $feature = ($item->feature == 1)? 'Enabled' : 'Disabled';@endphp
+                    <span class="ajax-active" field='feature' value='{{$item->feature}}' id-pro='{{$item->id}}'>{{$feature}}</span>
                 </div>
                 <div class="col-md-2 align-self-center text-center">
                     <a class="btn btn-primary btn-sm" href="{{route('products.edit',$item->id)}}" role="button">Edit</a>
-                    <button name="view" type="button" class="btn btn-success btn-sm">View</button>
+
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" id-pro="{{$item->id}}" class="quick-view btn btn-success btn-sm">Open Modal</button>
+
                     <button name="delete" id="{{$item->id}}" link="{{route('products.destroy',$item->id)}}" type="button" class="btn btn-secondary btn-sm">Delete</button>
                 </div>
             </div>
@@ -63,5 +61,24 @@
 
         </div>
     </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="QuickView" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 @endsection

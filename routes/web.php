@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
     Route::resource('products', 'product\ProductController');
     Route::post('products/ajax', 'product\ProductController@active_feature')->name('ajax-update');
+    Route::post('products/quick-view', 'product\ProductController@quick_view')->name('quick-view');
 });
