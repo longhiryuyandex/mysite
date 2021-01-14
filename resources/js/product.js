@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    var token = $("meta[name='csrf-token']").attr("content");
+    
     $('.datetime').datetimepicker({
         format:'d.m.Y',
         lang:'vn'
@@ -6,7 +8,6 @@ $(document).ready(function(){
 
     $(".quick-view").click(function(){
         var id = $(this).attr('id-pro');
-        var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
             type:'POST',
             url: 'products/quick-view',
@@ -27,14 +28,13 @@ $(document).ready(function(){
         $(this).val(formatted);
     })
 
-    $('button[name=delete]').click(function(){
+    $('.delete').click(function(){
 
         var del_button = $(this);
         var id = del_button.attr('id');
         var link = del_button.attr('link');
-        var token = $("meta[name='csrf-token']").attr("content");
         $.confirm({
-            title: 'What is up?',
+            title: 'Delete confirm!',
             content: 'Are you sure you want to delete this record?',
             type: 'red',
             buttons: {
@@ -81,7 +81,6 @@ $(document).ready(function(){
                         active.addClass('text-danger');
                         active.html('Disabled');
                     }
-
                     toastr.success('Status changed successfully!');
                 }
             });

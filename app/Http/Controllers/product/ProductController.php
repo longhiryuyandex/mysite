@@ -14,7 +14,7 @@ class ProductController extends Controller
         $field = $data['field'];
         // get data form DB
         $active = Product::find($data['id']);
-        $value = ($active->active + 1) % 2;
+        $value = ($active->$field + 1) % 2;
         Product::where('id',$data['id'])->update([$field => $value]);
         return $value;
     }

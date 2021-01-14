@@ -5,11 +5,13 @@
 @import 'variables';
 
 // Bootstrap
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~bootstrap/scss/bootstrap';
 @import "~toastr/toastr.scss";
 @import "~jquery-datetimepicker/jquery.datetimepicker.css";
-//my CSS
 @import "~jquery-confirm/dist/jquery-confirm.min.css";
+
+//my CSS
 ol.breadcrumb{
     border-radius: 6px;
 }
@@ -33,3 +35,24 @@ form[name='create']{
     padding: 8px 0;
 }
 
+.action-button{
+    font-size: 17pt;
+    margin: 0 3px 0 3px;
+    cursor: pointer;
+}
+
+.edit{
+    color: cadetblue;
+}
+
+.quick-view{
+    color: gray;
+}
+
+.delete{
+    color: red;
+}
+
+.ajax-active{
+    cursor: pointer;
+}

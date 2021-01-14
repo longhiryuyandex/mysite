@@ -46,12 +46,11 @@
                     <span class="ajax-active" field='feature' value='{{$item->feature}}' id-pro='{{$item->id}}'>{{$feature}}</span>
                 </div>
                 <div class="col-md-2 align-self-center text-center">
-                    <a class="btn btn-primary btn-sm" href="{{route('products.edit',$item->id)}}" role="button">Edit</a>
-
-                    <!-- Trigger the modal with a button -->
-                    <button type="button" id-pro="{{$item->id}}" class="quick-view btn btn-success btn-sm">Open Modal</button>
-
-                    <button name="delete" id="{{$item->id}}" link="{{route('products.destroy',$item->id)}}" type="button" class="btn btn-secondary btn-sm">Delete</button>
+                    <a href="{{route('products.edit',$item->id)}}">
+                        <i class="fas fa-edit edit action-button" title="Edit this record!"></i>
+                    </a>
+                    <i class="fas fa-binoculars quick-view action-button" id-pro="{{$item->id}}" title="Quick view!"></i>
+                    <i class="fas fa-trash-alt delete action-button" id="{{$item->id}}" link="{{route('products.destroy',$item->id)}}" title="Delete this record!"></i>
                 </div>
             </div>
             @endforeach
