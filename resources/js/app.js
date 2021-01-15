@@ -1,4 +1,4 @@
-require('@fortawesome/fontawesome-free/js/all.js')
+require('@fortawesome/fontawesome-free/js/all.js');
 require('./bootstrap');
 require('jquery-datetimepicker/build/jquery.datetimepicker.full.js');
 window.toastr = require('toastr');
