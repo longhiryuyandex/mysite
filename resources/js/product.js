@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var token = $("meta[name='csrf-token']").attr("content");
-    
+
     $('.datetime').datetimepicker({
         format:'d.m.Y',
         lang:'vn'
@@ -10,6 +10,7 @@ $(document).ready(function(){
         var id = $(this).attr('id-pro');
         $.ajax({
             type:'POST',
+            dataType: "text",
             url: 'products/quick-view',
             data:{id:id,'_method':'POST',_token: token},
             success:function(data){
@@ -21,15 +22,21 @@ $(document).ready(function(){
 
     });
 
-    //Create form
+
+    $('#search').keyup(function(event) {
+        if (event.keyCode === 13) {
+            //event.preventDefault();
+            alert('long');
+        }
+    });
+
     $("input[name=price]").focusout(function(){
         var price = $(this).val();
         var formatted = $.number( price, 0, ',', '.' );
         $(this).val(formatted);
     })
 
-    $('.delete').click(function(){
-
+    $('.delete').live('click',function(){
         var del_button = $(this);
         var id = del_button.attr('id');
         var link = del_button.attr('link');

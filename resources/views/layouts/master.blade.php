@@ -23,6 +23,7 @@
                 </div>
                 <div class="content col-md-10">
                     @yield('content')
+                    <div class="footer col-md-12">Footer</div>
                 </div>
             </div>
         </div>

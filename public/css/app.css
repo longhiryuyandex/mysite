@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.xdsoft_datetimepicker {
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Oswald&display=swap);.xdsoft_datetimepicker {
 	box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.506);
 	background: #fff;
 	border-bottom: 1px solid #bbb;
@@ -17782,8 +17782,48 @@ button.toast-close-button {
   }
 }
 
-ol.breadcrumb {
-  border-radius: 6px;
+body {
+  background-color: #E5E5E5;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+}
+
+.product-list a:link,
+.product-list a:visited {
+  font-family: Oswald, sans-serif !important;
+  color: black;
+  -webkit-text-decoration: under;
+          text-decoration: under;
+  font-size: 14pt;
+  font-weight: 400 !important;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.pagination ul.pagination {
+  text-align: right;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: black;
+  border-color: black;
+}
+
+.pagination .page-link {
+  color: black;
+}
+
+@media screen and (min-width: 676px) {
+  .modal-dialog {
+    max-width: 900px;
+    /* New width for default modal */
+  }
+}
+
+.page-header {
+  font-size: 16pt;
 }
 
 form[name=create] img#view-img {
@@ -17804,21 +17844,14 @@ form[name=create] .row[name=row-create] {
 }
 
 .action-button {
-  font-size: 17pt;
+  font-size: 13.5pt;
   margin: 0 3px 0 3px;
   cursor: pointer;
+  font-weight: 400;
 }
 
-.edit {
-  color: cadetblue;
-}
-
-.quick-view {
-  color: gray;
-}
-
-.delete {
-  color: red;
+.action-button:hover {
+  color: #6CB2EB;
 }
 
 .ajax-active {

@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Oswald&display=swap');
 
 // Variables
 @import 'variables';
@@ -14,8 +15,53 @@
 @import "~jquery-confirm/dist/jquery-confirm.min.css";
 
 //my CSS
-ol.breadcrumb{
-    border-radius: 6px;
+$bodyBG : #E5E5E5;
+$hover-color: #6CB2EB;
+$oswald: Oswald, sans-serif !important;
+
+body{
+    background-color: $bodyBG;
+    color: black;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.product-list{
+
+    a:link, a:visited{
+        font-family: $oswald;
+        color: black;
+        text-decoration: under;
+        font-size: 14pt;
+        font-weight: 400 !important;
+    }
+}
+
+.pagination{
+    margin: 0;
+
+    ul.pagination{
+        text-align: right;
+    }
+
+    .page-item.active .page-link{
+        background-color: black;
+        border-color: black;
+    }
+
+    .page-link{
+        color: black;
+    }
+}
+
+@media screen and (min-width: 676px) {
+    .modal-dialog {
+      max-width: 900px; /* New width for default modal */
+    }
+}
+
+.page-header{
+    font-size: 16pt;
+
 }
 
 form[name='create']{
@@ -38,22 +84,16 @@ form[name='create']{
 }
 
 .action-button{
-    font-size: 17pt;
+    font-size: 13.5pt;
     margin: 0 3px 0 3px;
     cursor: pointer;
+    font-weight: 400;
 }
 
-.edit{
-    color: cadetblue;
+.action-button:hover{
+    color: $hover-color;
 }
 
-.quick-view{
-    color: gray;
-}
-
-.delete{
-    color: red;
-}
 
 .ajax-active{
     cursor: pointer;
