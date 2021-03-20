@@ -21,7 +21,7 @@
                 </div>
         </div>
         <div class="col-md-4 px-2"> </div>
-        <div class="col-md-4 px-2">{{$product->links()}}</div>
+        <div class="col-md-4 px-2" style="overflow: hidden;">{{$product->links()}}</div>
         <div class="search-result"></div>
     </div>
 </div>
@@ -33,7 +33,6 @@
             <div class="row bg-white m-0 p-3">
                 <div class="col-md-3 p-0 text-center">
                     <img class="img-fluid" src="{{$item->img}}" />
-                    <span class="font-weight-bold">{{$item->SKU}}</span><br />
                     <a href="{{route('products.edit',$item->id)}}">
                         <i class="fas fa-edit edit action-button" title="Edit this record!"></i>
                     </a>
@@ -54,7 +53,7 @@
                     </div>
                     <div class="font-italic">
                         @php
-                        echo Str::substr($item->desc, 0, 150).'...';
+                            echo Str::substr(strip_tags($item->desc), 0, 150).'...';
                         @endphp
                     </div>
                 </div>

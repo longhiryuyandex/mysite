@@ -17800,10 +17800,7 @@ body {
 
 .pagination {
   margin: 0;
-}
-
-.pagination ul.pagination {
-  text-align: right;
+  width: 99% !important;
 }
 
 .pagination .page-item.active .page-link {

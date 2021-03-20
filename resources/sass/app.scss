@@ -36,12 +36,10 @@ body{
     }
 }
 
+// Hiệu chỉnh CSS cho phân trang
 .pagination{
     margin: 0;
-
-    ul.pagination{
-        text-align: right;
-    }
+    width: 99% !important;
 
     .page-item.active .page-link{
         background-color: black;

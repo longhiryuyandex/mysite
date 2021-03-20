@@ -55,6 +55,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = $request->all();
+        $product['price'] = str_replace('.','',$product['price']);
         Product::create($product);
 
         return back();
