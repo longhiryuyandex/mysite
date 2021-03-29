@@ -15,16 +15,21 @@
         <header></header>
         <div class="container-fluid">
             <div class="row h-100">
-                <div class="header col-md-12 bg-info">
-                    TRE Furniture Admin Page
-                </div>
-                <div class="sidebar col-md-2 h-100 bg-dark">
+                <div class="sidebar col-md-2 bg-dark">
                     This is sidebar
                 </div>
                 <div class="content col-md-10">
-                    @yield('content')
-                    <div class="footer col-md-12">Footer</div>
+                    <div class="row">
+                        <div class="header col-md-12 py-2 px-4 mb-3 bg-white">
+                            @yield('title')
+                        </div>
+                        @yield('content')
+                        <div class="footer col-md-12 py-2 px-4 mt-4 bg-white text-center">
+                            Copyright © 2021 TRE Design
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </body>

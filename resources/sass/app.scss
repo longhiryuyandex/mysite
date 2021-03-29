@@ -25,6 +25,15 @@ body{
     font-family: 'Open Sans',sans-serif;
 }
 
+.content{
+    position: relative;
+
+    .footer{
+        position: absolute;
+        bottom: 0;
+    }
+}
+
 .product-list{
 
     a:link, a:visited{
@@ -38,8 +47,6 @@ body{
 
 // Hiệu chỉnh CSS cho phân trang
 .pagination{
-    margin: 0;
-    width: 99% !important;
 
     .page-item.active .page-link{
         background-color: black;
@@ -57,11 +64,6 @@ body{
     }
 }
 
-.page-header{
-    font-size: 16pt;
-
-}
-
 form[name='create']{
     img#view-img{
         height: auto;
@@ -77,8 +79,8 @@ form[name='create']{
 }
 
 .header{
-    font-weight: bold;
-    padding: 8px 0;
+    font-size: 14pt;
+    font-weight: normal;
 }
 
 .action-button{

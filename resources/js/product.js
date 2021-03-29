@@ -16,7 +16,6 @@ $(document).ready(function(){
             success:function(data){
                 $('#QuickView .modal-body').html(data);
                 $("#QuickView").modal();
-
             }
         });
 
@@ -25,8 +24,14 @@ $(document).ready(function(){
 
     $('#search').keyup(function(event) {
         if (event.keyCode === 13) {
+            //var search = $(this);
+            //var tukhoa = $(search).val;
+            //alert(tukhoa);
             //event.preventDefault();
             alert('long');
+
+
+
         }
     });
 
@@ -34,9 +39,9 @@ $(document).ready(function(){
         var price = $(this).val();
         var formatted = $.number( price, 0, ',', '.' );
         $(this).val(formatted);
-    })
+    });
 
-    $('.delete').live('click',function(){
+    $('.delete').click(function(){
         var del_button = $(this);
         var id = del_button.attr('id');
         var link = del_button.attr('link');

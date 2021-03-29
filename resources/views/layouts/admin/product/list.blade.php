@@ -4,14 +4,8 @@
 
 @section('content')
 
-<div class="container-fluid mt-1">
-    <div class="row">
-        <div class="col-md-12 text-center page-header">Trang chủ - Sản phẩm</div>
-        <div class="col-md-12 text-center page-desc">
-            Hệ thống hiện tại có tất cả ??? sản phẩm...
-        </div>
-    </div>
-    <div class="row">
+<div class="container-fluid mt-3">
+    <div class="row mx-1">
         <div class="col-md-4 px-2">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -21,15 +15,15 @@
                 </div>
         </div>
         <div class="col-md-4 px-2"> </div>
-        <div class="col-md-4 px-2" style="overflow: hidden;">{{$product->links()}}</div>
+        <div class="col-md-4 px-2"></div>
         <div class="search-result"></div>
     </div>
 </div>
 
 <div class="container-fluid product-list">
-    <div class="row">
+    <div class="row mx-1">
         @foreach ($product as $item)
-        <div class="col-md-4 p-2">
+        <div class="col-md-4 my-2 px-2 {{$item->id}}">
             <div class="row bg-white m-0 p-3">
                 <div class="col-md-3 p-0 text-center">
                     <img class="img-fluid" src="{{$item->img}}" />
@@ -60,6 +54,11 @@
             </div>
         </div>
         @endforeach
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row mx-1 my-2">
+        <div class="col-md-12">{{$product->links()}}</div>
     </div>
 </div>
 

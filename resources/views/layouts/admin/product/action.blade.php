@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row" name="row-create">
             <div class="col-md-6 mb-3 text-left">
-                <span>Add new product:</span>
+
             </div>
             <div class="col-md-6 mb-3 text-right">
                 <button type="submit" class="btn btn btn-success btn-sm">Save data</button>

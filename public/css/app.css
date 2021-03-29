@@ -17788,6 +17788,15 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.content {
+  position: relative;
+}
+
+.content .footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .product-list a:link,
 .product-list a:visited {
   font-family: Oswald, sans-serif !important;
@@ -17796,11 +17805,6 @@ body {
           text-decoration: under;
   font-size: 14pt;
   font-weight: 400 !important;
-}
-
-.pagination {
-  margin: 0;
-  width: 99% !important;
 }
 
 .pagination .page-item.active .page-link {
@@ -17819,10 +17823,6 @@ body {
   }
 }
 
-.page-header {
-  font-size: 16pt;
-}
-
 form[name=create] img#view-img {
   height: auto;
   width: 100%;
@@ -17836,8 +17836,8 @@ form[name=create] .row[name=row-create] {
 }
 
 .header {
-  font-weight: bold;
-  padding: 8px 0;
+  font-size: 14pt;
+  font-weight: normal;
 }
 
 .action-button {
