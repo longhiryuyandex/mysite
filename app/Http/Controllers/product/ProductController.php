@@ -6,25 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Model\Product;
+use Laravel\Ui\Presets\React;
+use App\Http\Controllers\Secguard;
 
 class ProductController extends Controller
 {
-    public function active_feature(Request $request){
-        $data = $request->all();
-        $field = $data['field'];
-        // get data form DB
-        $active = Product::find($data['id']);
-        $value = ($active->$field + 1) % 2;
-        Product::where('id',$data['id'])->update([$field => $value]);
-        return $value;
-    }
-
-    public function quick_view(Request $request){
-        $data = $request->all();
-        $id = $data['id'];
-        $product = Product::find($id);
-        return view('layouts.admin.product.quickview',['product' => $product ]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -107,6 +93,33 @@ class ProductController extends Controller
         else:
             return redirect()->route('products.index');
         endif;
+    }
+
+
+    public function active_feature(Request $request){
+        $data = $request->all();
+        $field = $data['field'];
+        // get data form DB
+        $active = Product::find($data['id']);
+        $value = ($active->$field + 1) % 2;
+        Product::where('id',$data['id'])->update([$field => $value]);
+        return $value;
+    }
+
+    public function quick_view(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $product = Product::find($id);
+        return view('layouts.admin.product.quickview',['product' => $product ]);
+    }
+
+    // SEARCH PRODUCT
+    public function search(Request $request){
+        $data = $request->all();
+        $sec = new Secguard();
+        $keyword = $sec->filter_data($data['keyword']);
+        $data = Product::where('name','LIKE',"%{$keyword}%")->paginate(9);
+        return view('layouts.admin.product.search_list',['product' => $data]);
     }
 
     /**

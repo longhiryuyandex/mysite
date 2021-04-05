@@ -22,29 +22,17 @@ $(document).ready(function(){
     });
 
 
-    $('#search').keyup(function(event) {
-        if (event.keyCode === 13) {
-            //var search = $(this);
-            //var tukhoa = $(search).val;
-            //alert(tukhoa);
-            //event.preventDefault();
-            alert('long');
-
-
-
-        }
-    });
-
     $("input[name=price]").focusout(function(){
         var price = $(this).val();
         var formatted = $.number( price, 0, ',', '.' );
         $(this).val(formatted);
     });
 
-    $('.delete').click(function(){
+    $('.delete').on('click',function(){
         var del_button = $(this);
         var id = del_button.attr('id');
         var link = del_button.attr('link');
+        alert('long');
         $.confirm({
             title: 'Delete confirm!',
             content: 'Are you sure you want to delete this record?',

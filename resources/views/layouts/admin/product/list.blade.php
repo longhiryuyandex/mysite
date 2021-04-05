@@ -7,16 +7,19 @@
 <div class="container-fluid mt-3">
     <div class="row mx-1">
         <div class="col-md-4 px-2">
+            <form method="POST" action="{{route('product-search')}}">
+                @csrf
                 <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">Search:</span>
                     </div>
-                    <input id='search' type="text" class="form-control" placeholder="keyword" aria-label="Product name" aria-describedby="basic-addon1">
+                    <input name='keyword' type="text" class="form-control" placeholder="keyword" aria-label="Product name" aria-describedby="basic-addon1" value="">
                 </div>
+            </form>
         </div>
-        <div class="col-md-4 px-2"> </div>
-        <div class="col-md-4 px-2"></div>
-        <div class="search-result"></div>
+        <div class="search-result">
+
+        </div>
     </div>
 </div>
 
