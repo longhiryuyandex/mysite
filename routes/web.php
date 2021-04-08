@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,10 @@ Route::prefix('admin')->group(function(){
     Route::post('products/ajax', 'product\ProductController@active_feature')->name('ajax-update');
     Route::post('products/quick-view', 'product\ProductController@quick_view')->name('quick-view');
     Route::post('products/search', 'product\ProductController@search')->name('product-search');
+});
+
+Route::get('test', function()
+{
+    $img = Image::make('images/image.jpg')->resize(300, 200);
+    return $img->response('jpg');
 });

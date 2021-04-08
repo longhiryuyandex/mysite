@@ -20,9 +20,7 @@
                 </div>
                 <div class="content col-md-10">
                     <div class="row">
-                        <div class="header col-md-12 py-2 px-4 mb-3 bg-white">
-                            @yield('title')
-                        </div>
+                        <div class="header col-md-12 py-2 px-4 mb-3 bg-white"> @yield('title')</div>
                         @yield('content')
                         <div class="footer col-md-12 py-2 px-4 mt-4 bg-white text-center">
                             Copyright © 2021 TRE Design

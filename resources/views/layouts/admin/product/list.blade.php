@@ -1,13 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.admin.master')
 
-@section('title','Product list')
+@section('title','Product list:')
 
 @section('content')
 
 <div class="container-fluid mt-3">
     <div class="row mx-1">
         <div class="col-md-4 px-2">
-            <form method="POST" action="{{route('product-search')}}">
+            <form class="m-0" method="POST" action="{{route('product-search')}}">
                 @csrf
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -16,9 +16,6 @@
                     <input name='keyword' type="text" class="form-control" placeholder="keyword" aria-label="Product name" aria-describedby="basic-addon1" value="">
                 </div>
             </form>
-        </div>
-        <div class="search-result">
-
         </div>
     </div>
 </div>

@@ -32,7 +32,6 @@ $(document).ready(function(){
         var del_button = $(this);
         var id = del_button.attr('id');
         var link = del_button.attr('link');
-        alert('long');
         $.confirm({
             title: 'Delete confirm!',
             content: 'Are you sure you want to delete this record?',

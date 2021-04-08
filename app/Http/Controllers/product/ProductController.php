@@ -115,6 +115,7 @@ class ProductController extends Controller
 
     // SEARCH PRODUCT
     public function search(Request $request){
+        $keyword = '';
         $data = $request->all();
         $sec = new Secguard();
         $keyword = $sec->filter_data($data['keyword']);
